@@ -215,6 +215,10 @@ arr.splice(1, 1); // À partir de l'index 1 supprime 1 élément
 alert( arr ); // ["I", "JavaScript"]
 ```  
   
+Supprime les cases vide d'un tableau
+```js
+    str = str.trim();
+```  
 
 ### Ajouter un élément dans un tableau  
   
@@ -333,4 +337,11 @@ const average = grades.reduce((sum, grade) => sum + grade, 0) / grades.length;
 function check(a, x) {
   return a.includes(x);
 }
+```  
+  
+## IndexOf  
+  
+Recherche l'élément item à prtir de l'Index from et retourne l'index ou il a été trouvé, sinon -1
+```js
+arr.indexOf(item, from) 
 ```  
