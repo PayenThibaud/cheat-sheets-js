@@ -214,6 +214,7 @@ arr.splice(1, 1); // À partir de l'index 1 supprime 1 élément
 
 alert( arr ); // ["I", "JavaScript"]
 ```  
+  
 
 ### Ajouter un élément dans un tableau  
   
@@ -256,6 +257,15 @@ let arr = [ 1, 2, 15 ];
 
 arr.sort(compareNumeric);
 
+alert(arr);  // 1, 2, 15
+```  
+  
+Ou fait un trie et créer un nouveau tableau qui respecte la condition
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+// evenNumbers sera [2, 4, 6, 8]
 alert(arr);  // 1, 2, 15
 ```  
   
@@ -317,3 +327,10 @@ const average = grades.reduce((sum, grade) => sum + grade, 0) / grades.length;
 // À la fin, la valeur de `sum` est 430.
 ```  
 
+## inclue
+
+```js
+function check(a, x) {
+  return a.includes(x);
+}
+```  
