@@ -16,9 +16,11 @@ let user = {     // un objet
   age: 30        // par clé "age" valeur de stockage 30
 };
 ```
-On peut récupèrer les valeurs avec la notation `user.name`  
+On peut récupèrer les valeurs avec la notation `user.name;`  
   
-On peut supprimer les Propriété avec `delete user.name`  
+On peut supprimer les Propriété avec `delete user.name;`  
+  
+On peut renommé une variale `user.name = 'Pete';`
 
 Si on veut créer une Variable dans la propriété on l'entoure de `[ ]`  
   
@@ -52,5 +54,41 @@ let codes = {
 for(let code in codes) {
   alert(code); // 1, 41, 44, 49
 }
+```  
+  
+Les objets ne sont pas stockés au même endroit que les variables, et plusieurs variables peuvent stocker la même référence vers l'objet.  
+![Alt text](Image/objectjs.png)  
+  
+Pour cloner un objet : 
+```js
+let user = {
+  name: "John",
+  age: 30
+};
 
+let clone = {}; // le nouvel object vide
+
+// on copie toutes les propritétés de user
+for (let key in user) {
+  clone[key] = user[key];
+}
+```  
+ou
+```js
+let clone = Object.assign({}, user);
+```  
+ou plus profondement 
+```js
+let clone = structuredClone(user);
+```  
+  
+Pour faire une fusion :
+```js
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copie toutes les propriétés de permissions1 et 2 dans user
+Object.assign(user, permissions1, permissions2);
 ```  
