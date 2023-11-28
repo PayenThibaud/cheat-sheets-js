@@ -2,3 +2,127 @@
 
 ## Fondamentaux 
 
+### Les bases
+  
+Créer un objet : `{...}`  
+  
+Propriété est une paire `clé:valeur`  
+La key est une chaîne de caractère, appelée **nom de la propriété**  
+  
+Exemple d'objet :
+```js
+let user = {     // un objet
+  name: "John",  // par clé "nom" valeur de stockage "John"
+  age: 30        // par clé "age" valeur de stockage 30
+};
+```
+On peut récupèrer les valeurs avec la notation `user.name;`  
+  
+On peut supprimer les Propriété avec `delete user.name;`  
+  
+On peut renommé une variale `user.name = 'Pete';`
+
+Si on veut créer une Variable dans la propriété on l'entoure de `[ ]`  
+  
+Exemple de variable dans un objet :  
+```js
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5, // le nom de la propriété est tiré de la variable fruit
+};
+
+alert( bag.apple ); // 5 si fruit="apple"
+```  
+*Ceci marche pour la Key, et le nom de valeur qu'on veut sortir*  
+  
+Verifier si la propriété existe :  
+```js
+alert( "age" in user ); // true, user.age existe
+```  
+  
+On a une boucle pour les objets :  
+```js
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  // ..,
+  "1": "USA"
+};
+
+for(let code in codes) {
+  alert(code); // 1, 41, 44, 49
+}
+```  
+  
+Les objets ne sont pas stockés au même endroit que les variables, et plusieurs variables peuvent stocker la même référence vers l'objet.  
+![Alt text](Image/objectjs.png)  
+  
+Pour cloner un objet : 
+```js
+let user = {
+  name: "John",
+  age: 30
+};
+
+let clone = {}; // le nouvel object vide
+
+// on copie toutes les propritétés de user
+for (let key in user) {
+  clone[key] = user[key];
+}
+```  
+ou
+```js
+let clone = Object.assign({}, user);
+```  
+ou plus profondement 
+```js
+let clone = structuredClone(user);
+```  
+  
+Pour faire une fusion :
+```js
+let user = { name: "John" };
+
+let permissions1 = { canView: true };
+let permissions2 = { canEdit: true };
+
+// copie toutes les propriétés de permissions1 et 2 dans user
+Object.assign(user, permissions1, permissions2);
+```  
+  
+### Programmation orientée objet  / POO  
+  
+Les méthodes sont des fonction dans l'objet.
+```js
+let user = {
+  name: "John",
+  age: 30, // Se sont les propriété de l'objet
+
+  sayHi() {
+    alert(this.name); // ceci est une méthode de l'objet
+  }
+
+};
+
+user.sayHi(); // On resort la méthode
+alter(user.name); // On resort une valeur /!\ on ne peut pas utiliser this. on est en dehors de l'objet.
+```  
+On peut aussi les créer les méthodes en dehors de l'objet.
+```js
+let user = {
+  name: "John",
+  age: 30
+};
+
+user.sayHi = function() {
+  alert(this.name);  // /!\ on peut utiliser this. on rentre dans l'objet avec user.
+};
+
+user.sayHi();
+```  
+
+La valeur de `this.` est l'ojet avant le point, celui utilisé pour appeler la méthode.  
+  
