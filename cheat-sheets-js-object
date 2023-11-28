@@ -92,3 +92,37 @@ let permissions2 = { canEdit: true };
 // copie toutes les propriétés de permissions1 et 2 dans user
 Object.assign(user, permissions1, permissions2);
 ```  
+  
+### Programmation orientée objet  / POO  
+  
+Les méthodes sont des fonction dans l'objet.
+```js
+let user = {
+  name: "John",
+  age: 30, // Se sont les propriété de l'objet
+
+  sayHi() {
+    alert(this.name); // ceci est une méthode de l'objet
+  }
+
+};
+
+user.sayHi(); // On resort la méthode
+alter(user.name); // On resort une valeur /!\ on ne peut pas utiliser this. on est en dehors de l'objet.
+```  
+On peut aussi les créer les méthodes en dehors de l'objet.
+```js
+let user = {
+  name: "John",
+  age: 30
+};
+
+user.sayHi = function() {
+  alert(this.name);  // /!\ on peut utiliser this. on rentre dans l'objet avec user.
+};
+
+user.sayHi();
+```  
+
+La valeur de `this.` est l'ojet avant le point, celui utilisé pour appeler la méthode.  
+  
