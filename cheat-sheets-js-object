@@ -3,3 +3,54 @@
 ## Fondamentaux 
 
 ### Les bases
+  
+Créer un objet : `{...}`  
+  
+Propriété est une paire `clé:valeur`  
+La key est une chaîne de caractère, appelée **nom de la propriété**  
+  
+Exemple d'objet :
+```js
+let user = {     // un objet
+  name: "John",  // par clé "nom" valeur de stockage "John"
+  age: 30        // par clé "age" valeur de stockage 30
+};
+```
+On peut récupèrer les valeurs avec la notation `user.name`  
+  
+On peut supprimer les Propriété avec `delete user.name`  
+
+Si on veut créer une Variable dans la propriété on l'entoure de `[ ]`  
+  
+Exemple de variable dans un objet :  
+```js
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5, // le nom de la propriété est tiré de la variable fruit
+};
+
+alert( bag.apple ); // 5 si fruit="apple"
+```  
+*Ceci marche pour la Key, et le nom de valeur qu'on veut sortir*  
+  
+Verifier si la propriété existe :  
+```js
+alert( "age" in user ); // true, user.age existe
+```  
+  
+On a une boucle pour les objets :  
+```js
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  // ..,
+  "1": "USA"
+};
+
+for(let code in codes) {
+  alert(code); // 1, 41, 44, 49
+}
+
+```  
