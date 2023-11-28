@@ -126,3 +126,63 @@ user.sayHi();
 
 La valeur de `this.` est l'ojet avant le point, celui utilisé pour appeler la méthode.  
   
+#### Constructor
+
+`New` permet de recréer des objet beaucoup plus rapidement.
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Utilisation de new pour créer une instance de Person
+let person1 = new Person("Alice", 28);
+console.log(person1); // Output: Person { name: 'Alice', age: 28 }
+```  
+On peut aussi implémenter une Méthode dans un new  
+```js
+function User(name) {
+  this.name = name;
+  this.sayHi = function() {
+    alert( "My name is: " + this.name );
+  };
+}
+
+let john = new User("John");
+
+john.sayHi(); // My name is: John
+```  
+ou
+```js
+  this.sayHi = () => alert("My name is: " + this.name);
+```  
+  
+#### Optional chaining (si, if, ?)
+
+- `obj?.prop` – retourne obj.prop si obj existe, sinon undefined.
+- `obj?.[prop`] – retourne obj[prop] si obj existe, sinon undefined.
+- `obj.method?.()` – appel obj.method() si obj.method existe, sinon retourne undefined.
+```js
+alert( user?.address?.street );
+ // on vérifier si user est défini puis user.address si l'un d'eux est indéfini : undefined
+```  
+  
+#### Symbol
+   
+Les symbol sont des identifiant unique
+```js
+let id = Symbol("id");
+alert(id.toString()); 
+```  
+  
+#### Conversion
+  
+`string`  
+Lorsqu'une opération attend une chaîne, par exemple `alert`  
+
+`number`  
+exemple :
+```js
+let num = Number(obj);
+```  
+  
